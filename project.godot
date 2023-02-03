@@ -13,6 +13,18 @@ config_version=4
 config/name="BobryAndDrzewa"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/size/fullscreen=true
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
+[global]
+
+screen=false
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
