@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mapa.png-060c464bca360ea4eae7c97ff0184caf.stex"
+path="res://.import/bobr.png-a410cdd5ab5a23a66235bb1839da103c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mapa/mapa.png"
-dest_files=[ "res://.import/mapa.png-060c464bca360ea4eae7c97ff0184caf.stex" ]
+source_file="res://bobr/bobr.png"
+dest_files=[ "res://.import/bobr.png-a410cdd5ab5a23a66235bb1839da103c.stex" ]
 
 [params]
 

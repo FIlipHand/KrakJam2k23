@@ -11,6 +11,7 @@ config_version=4
 [application]
 
 config/name="BobryAndDrzewa"
+run/main_scene="res://gra/Gra.tscn"
 config/icon="res://icon.png"
 
 [display]
