@@ -1,13 +1,16 @@
 extends Node
 
+export var tree_spawner_rate:float = 1
+export var tree_spawner_varience:float = 10
 export var trees_per_progression:int = 2
+
 var total_tree_count:int = 0
 
 func _ready():
-	$YSort/SpawnAreaGora.start_spawning()
-	$YSort/SpawnAreaDol.start_spawning()
-
-
+	for spawnArea in [$YSort/SpawnAreaGora, $YSort/SpawnAreaDol]:
+		spawnArea.spawn_rate = tree_spawner_rate
+		spawnArea.spawn_rate_varience = tree_spawner_varience
+		spawnArea.start_spawning()
 
 func shift_spawn_area(spawn_area, xMulitplier):
 	var xOffset:float = spawn_area.get_node("ReferenceRect").rect_size.x * xMulitplier

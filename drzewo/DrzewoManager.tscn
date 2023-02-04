@@ -8,4 +8,3 @@
 [node name="DrzewoManager" type="Node2D"]
 script = ExtResource( 1 )
 growth_stages = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ]
-start_growth_stage = 2

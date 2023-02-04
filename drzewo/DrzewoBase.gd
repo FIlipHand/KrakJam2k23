@@ -1,3 +1,4 @@
+
 extends StaticBody2D
 
 signal ready_to_grow()
