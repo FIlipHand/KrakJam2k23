@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://drzewo/DrzewoManager.gd" type="Script" id=1]
+[ext_resource path="res://drzewo/DrzewoDuze.tscn" type="PackedScene" id=2]
+[ext_resource path="res://drzewo/DrzewoMale.tscn" type="PackedScene" id=3]
+[ext_resource path="res://drzewo/DrzewoSrednie.tscn" type="PackedScene" id=4]
+
+[node name="DrzewoManager" type="Node2D"]
+script = ExtResource( 1 )
+growth_stages = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ]
+start_growth_stage = 2
