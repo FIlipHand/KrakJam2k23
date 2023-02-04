@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/jedna_kłoda.png-92f0bbab5f1097234d9ed7b8183cdfc1.stex"
+path="res://.import/bobr_animacja_przod2.png-b8510f84f104ddaa2896c7cc83a7f0ad.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tama/jedna_kłoda.png"
-dest_files=[ "res://.import/jedna_kłoda.png-92f0bbab5f1097234d9ed7b8183cdfc1.stex" ]
+source_file="res://bobr/bobr_animacja_przod2.png"
+dest_files=[ "res://.import/bobr_animacja_przod2.png-b8510f84f104ddaa2896c7cc83a7f0ad.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0
