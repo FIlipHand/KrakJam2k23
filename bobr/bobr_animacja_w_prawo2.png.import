@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/FAZA-trzecia.png-cdf8cd95a5367b294ea33ea95f4f5dff.stex"
+path="res://.import/bobr_animacja_w_prawo2.png-0a3ca73985616fee474f994ff1302013.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tama/FAZA-trzecia.png"
-dest_files=[ "res://.import/FAZA-trzecia.png-cdf8cd95a5367b294ea33ea95f4f5dff.stex" ]
+source_file="res://bobr/bobr_animacja_w_prawo2.png"
+dest_files=[ "res://.import/bobr_animacja_w_prawo2.png-0a3ca73985616fee474f994ff1302013.stex" ]
 
 [params]
 

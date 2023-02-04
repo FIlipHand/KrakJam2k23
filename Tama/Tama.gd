@@ -3,16 +3,19 @@ extends Area2D
 export var MAX_FILL: int = 100
 export var current_fill: int = 0
 
-var tama_1 = preload('res://Tama/jedna_kłoda.png')
-var tama_2 = preload('res://Tama/FAZA_druga_tamy.png')
-var tama_3 = preload('res://Tama/FAZA-trzecia.png')
+var tama_0 = preload('res://Tama/tama_0.png')
+var tama_1 = preload('res://Tama/tama_1.png')
+var tama_2 = preload('res://Tama/tama_2.png')
+var tama_3 = preload('res://Tama/tama_3.png')
 
 func _ready():
-	$Sprite.texture = tama_1
+	$Sprite.texture = tama_0
 
 
 func add_log_to_tama():
 	current_fill+= 20
+	if current_fill >= 20 and current_fill < 40:
+		$Sprite.texture = tama_1
 	if current_fill >= 40 and current_fill < 80:
 		$Sprite.texture = tama_2
 	if current_fill >= 80:
