@@ -36,9 +36,10 @@ func pick_or_drop():
 				picked_log.hide()
 
 func drop_log_to_tama():
-	rotation_degrees = 0
-	picked_log.queue_free()	
-	picked_log = null
+	if picked_log != null:
+		rotation_degrees = 0
+		picked_log.queue_free()
+		picked_log = null
 
 func bite():
 	# TODO tutaj jakoś animacja będzie więc to inaczej i tak będize działało
