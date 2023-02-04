@@ -11,7 +11,14 @@ func _physics_process(delta):
 	input_vec = input_vec.normalized() * MAX_SPEED
 
 	velocity = move_and_slide(input_vec)
+	
+	if Input.is_action_just_pressed("hit"):
+		bite()
 
+func bite():
+	# TODO tutaj jakoś animacja będzie więc to inaczej i tak będize działało
+	$AttackShape/CollisionShape2D.disabled = !$AttackShape/CollisionShape2D.disabled
 
-func _on_AttackShape_area_entered(area):
-	print('krowa')
+func _on_AttackShape_area_entered(area: Area2D):
+	if area.is_in_group('TreeHitBox'):
+		area.take_damege()
