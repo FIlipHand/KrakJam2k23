@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://mapa/Mapa.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bobr/Bobr.tscn" type="PackedScene" id=2]
-[ext_resource path="res://drzewo/Drzewo.tscn" type="PackedScene" id=3]
+[ext_resource path="res://drzewo/DrzewoMale.tscn" type="PackedScene" id=3]
+[ext_resource path="res://drzewo/DrzewoSrednie.tscn" type="PackedScene" id=4]
+[ext_resource path="res://drzewo/DrzewoDuze.tscn" type="PackedScene" id=5]
 
 [node name="Gra" type="Node"]
 
@@ -14,8 +16,11 @@ position = Vector2( 640, 360 )
 [node name="Bobr" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 899, 173 )
 
-[node name="Drzewo" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 542, 162 )
+[node name="DrzewoMale" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 454, 119 )
 
-[node name="Drzewo2" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 403, 190 )
+[node name="DrzewoSrednie" parent="." instance=ExtResource( 4 )]
+position = Vector2( 596, 181 )
+
+[node name="DrzewoDuze" parent="." instance=ExtResource( 5 )]
+position = Vector2( 765, 141 )
