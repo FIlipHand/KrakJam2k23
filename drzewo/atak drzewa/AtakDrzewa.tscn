@@ -22,9 +22,9 @@ height = 64.0
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 1, 0 )
 z_index = 1
 frames = SubResource( 1 )
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -32,8 +32,4 @@ position = Vector2( -4, 12 )
 rotation = 1.5708
 shape = SubResource( 2 )
 
-[node name="RootTimer" type="Timer" parent="."]
-one_shot = true
-
-[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]
 [connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]
