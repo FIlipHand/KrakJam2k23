@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://mapa/Mapa.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bobr/Bobr.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tama/Log.tscn" type="PackedScene" id=3]
 [ext_resource path="res://drzewo/DrzewoManager.tscn" type="PackedScene" id=6]
 
 [node name="Gra" type="Node"]
@@ -13,6 +14,9 @@ position = Vector2( 640, 360 )
 
 [node name="Bobr" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 899, 173 )
+
+[node name="RigidBody2D" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 400, 204 )
 
 [node name="DrzewoManager" parent="." instance=ExtResource( 6 )]
 position = Vector2( 505, 133 )
