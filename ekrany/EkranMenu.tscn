@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ekrany/Ekran.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ekrany/ekran_menu.png" type="Texture" id=2]
+[ext_resource path="res://gra/Gra.tscn" type="PackedScene" id=3]
+
+[node name="EkranMenu" instance=ExtResource( 1 )]
+texture = ExtResource( 2 )
+next_scene = ExtResource( 3 )

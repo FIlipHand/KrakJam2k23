@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lose screen.png-0464c2e70888f65a09130e60e6486508.stex"
+path="res://.import/ekran_porazki.png-f39bb6860cac025be9af60c0ace0dc15.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://win i lose screen/lose screen.png"
-dest_files=[ "res://.import/lose screen.png-0464c2e70888f65a09130e60e6486508.stex" ]
+source_file="res://ekrany/ekran_porazki.png"
+dest_files=[ "res://.import/ekran_porazki.png-f39bb6860cac025be9af60c0ace0dc15.stex" ]
 
 [params]
 
