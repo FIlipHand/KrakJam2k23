@@ -45,3 +45,8 @@ func _on_SpawnArea_no_nodes_in_area(spawn_area):
 
 func _on_RootsAttackTimer_timeout():
 	attack_with_roots()
+
+func _on_game_won():
+	$Mapa.stop()
+	$Mapa/WyschnietaRzeka.play()
+	$Mapa/WyschnietaRzeka.visible = true

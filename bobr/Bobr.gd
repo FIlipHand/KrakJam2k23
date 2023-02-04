@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const MAX_SPEED = 230
+const MAX_SPEED = 460
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree

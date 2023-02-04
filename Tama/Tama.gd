@@ -1,7 +1,10 @@
 extends Area2D
 
+signal log_brought(total_logs_count)
+signal tama_built()
+
 export var MAX_FILL: int = 100
-export var current_fill: int = 0
+export var total_log_count: int = 0
 
 var tama_0 = preload('res://Tama/tama_0.png')
 var tama_1 = preload('res://Tama/tama_1.png')
@@ -13,15 +16,17 @@ func _ready():
 
 
 func add_log_to_tama():
-	current_fill+= 20
-	if current_fill >= 20 and current_fill < 40:
+	total_log_count+= 1
+	if total_log_count >= 1 and total_log_count < 3:
 		$Sprite.texture = tama_1
-	if current_fill >= 40 and current_fill < 80:
+	if total_log_count >= 3 and total_log_count < 5:
 		$Sprite.texture = tama_2
-	if current_fill >= 80:
+	if total_log_count >= 10:
 		$Sprite.texture = tama_3
-	if current_fill >= MAX_FILL:
-		print("Bjubry wygraly")
+	# if total_log_count >= MAX_FILL:
+	if total_log_count >= 1:
+		emit_signal("tama_built")
+	emit_signal("log_brought", total_log_count)
 
 
 func _on_Node2D_area_entered(area: Area2D):
