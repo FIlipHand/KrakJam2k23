@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://bobr/Bobr.gd" type="Script" id=1]
 [ext_resource path="res://bobr/spritesheet.png" type="Texture" id=2]
@@ -8,6 +8,7 @@ radius = 14.0
 height = 22.0
 
 [sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10, 37.5 )
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 22.0
@@ -25,6 +26,102 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AttackShape/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "bite_left"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 9 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "bite_animation_finish"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AttackShape/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "bite_right"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "bite_animation_finish"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AttackShape/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=13]
@@ -163,6 +260,29 @@ tracks/0/keys = {
 "values": [ 6, 5 ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "bite_left"
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "bite_left"
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "bite_right"
+
+[sub_resource type="AnimationNodeAnimation" id=33]
+animation = "bite_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=34]
+blend_point_0/node = SubResource( 30 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 31 )
+blend_point_1/pos = Vector2( 0, 0.9 )
+blend_point_2/node = SubResource( 32 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 33 )
+blend_point_3/pos = Vector2( 0, -0.9 )
+blend_mode = 1
+
 [sub_resource type="AnimationNodeAnimation" id=14]
 animation = "idle_left"
 
@@ -213,12 +333,18 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=27]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
 [sub_resource type="AnimationNodeStateMachine" id=19]
+states/Bite/node = SubResource( 34 )
+states/Bite/position = Vector2( 148, 54 )
 states/Idle/node = SubResource( 18 )
 states/Idle/position = Vector2( 257, 140 )
 states/Walk/node = SubResource( 25 )
 states/Walk/position = Vector2( 507, 121 )
-transitions = [ "Idle", "Walk", SubResource( 26 ), "Walk", "Idle", SubResource( 27 ) ]
+transitions = [ "Idle", "Walk", SubResource( 26 ), "Walk", "Idle", SubResource( 27 ), "Idle", "Bite", SubResource( 35 ), "Bite", "Idle", SubResource( 36 ) ]
 start_node = "Idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=20]
@@ -239,9 +365,8 @@ shape = SubResource( 1 )
 [node name="AttackShape" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackShape"]
-position = Vector2( -34, -15 )
+position = Vector2( -34, 1.5 )
 shape = SubResource( 3 )
-disabled = true
 
 [node name="PickUpBox" type="Area2D" parent="." groups=["Player"]]
 
@@ -254,6 +379,8 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 5 )
+anims/bite_left = SubResource( 28 )
+anims/bite_right = SubResource( 29 )
 anims/idle_down = SubResource( 13 )
 anims/idle_left = SubResource( 11 )
 anims/idle_right = SubResource( 12 )
@@ -266,8 +393,8 @@ anims/walk_up = SubResource( 10 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 19 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource( 20 )
+parameters/Bite/blend_position = Vector2( -0.0026201, 0.00578034 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Walk/blend_position = Vector2( 0, 0 )
 
