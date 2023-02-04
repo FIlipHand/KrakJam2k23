@@ -18,8 +18,7 @@ var facing = direction.E
 
 enum {
 	MOVE,
-	BITE,
-	CARRY
+	BITE
 }
 
 var bubr_state = MOVE
@@ -31,12 +30,12 @@ func _ready():
 
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("hit"):
-		if picked_log != null:
+		if picked_log != null or bubr_state == 1:
 			return
 		bubr_state = BITE
 	
 	if Input.is_action_just_pressed("pick_drop"):
-		bubr_state = CARRY
+		pick_or_drop()
 
 	match bubr_state:
 		MOVE:
@@ -44,8 +43,6 @@ func _physics_process(_delta):
 				do_movement()
 		BITE:
 			bite_state()
-		CARRY:
-			pick_or_drop()
 		
 
 
@@ -74,10 +71,18 @@ func do_movement():
 		animationTree.set('parameters/Walk/blend_position', input_vec)
 		animationTree.set('parameters/Idle/blend_position', input_vec)
 		animationTree.set('parameters/Bite/blend_position', input_vec)
-		animationState.travel("Walk")
+		animationTree.set('parameters/LogWalk/blend_position', input_vec)
+		animationTree.set('parameters/IdleLog/blend_position', input_vec)
+		if picked_log != null:
+			animationState.travel("LogWalk")
+		else:
+			animationState.travel("Walk")
 		velocity = move_and_slide(input_vec)
 	else:
-		animationState.travel("Idle")
+		if picked_log != null:
+			animationState.travel("IdleLog")
+		else:
+			animationState.travel("Idle")
 
 func pick_or_drop():
 	if picked_log != null:
@@ -89,9 +94,9 @@ func pick_or_drop():
 		if len($PickUpBox.get_overlapping_areas()) > 0:
 			var possible_log_object = $PickUpBox.get_overlapping_areas()[0] # to może generowac błędy
 			if possible_log_object.is_in_group("LogPickUp"):
+				animationState.travel("LogWalk")
 				picked_log = possible_log_object.get_parent()
 				picked_log.hide()
-	bubr_state = MOVE
 
 func drop_log_to_tama():
 	if picked_log != null:
