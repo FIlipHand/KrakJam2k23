@@ -5,9 +5,6 @@ export var HP:int = 2
 onready var frames_count = $AnimatedSprite.frames.get_frame_count("default")
 var player = null
 
-func _ready():
-	$RootTimer.connect("timeout", self, "_on_RootTimer_timeout")
-
 func attack():
 	var caught:bool = false
 	for body in get_overlapping_bodies():
@@ -29,13 +26,9 @@ func _on_caught():
 
 
 func _on_player_caught():
-	player.movement_enabled = false
-	$RootTimer.start()
+	if player != null:
+		player.movement_enabled = false
 
-
-func _on_RootTimer_timeout():
-	if player!=null:
-		player.movement_enabled = true
 
 func _on_AnimatedSprite_frame_changed():
 	if ($AnimatedSprite.frame == frames_count-1):
@@ -47,4 +40,5 @@ func _on_attacked():
 	if(HP <= 0):
 		if player!=null:
 			player.movement_enabled = true
+		hide()
 		queue_free()
