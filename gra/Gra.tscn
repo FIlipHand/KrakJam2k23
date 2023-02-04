@@ -32,10 +32,15 @@ margin_top = 420.0
 margin_right = 250.0
 margin_bottom = 720.0
 
-[node name="Node2D" parent="YSort" instance=ExtResource( 6 )]
+[node name="Tama" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 958, 399 )
 
 [node name="Bobr" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 899, 173 )
 
-[connection signal="node_spawned" from="YSort/SpawnAreaGora" to="." method="_on_SpawnAreaGora_node_spawned"]
+[connection signal="no_nodes_in_area" from="YSort/SpawnAreaGora" to="." method="_on_SpawnArea_no_nodes_in_area"]
+[connection signal="node_exiting" from="YSort/SpawnAreaGora" to="." method="_on_SpawnArea_node_exiting"]
+[connection signal="node_spawned" from="YSort/SpawnAreaGora" to="." method="_on_SpawnArea_node_spawned"]
+[connection signal="no_nodes_in_area" from="YSort/SpawnAreaDol" to="." method="_on_SpawnArea_no_nodes_in_area"]
+[connection signal="node_exiting" from="YSort/SpawnAreaDol" to="." method="_on_SpawnArea_node_exiting"]
+[connection signal="node_spawned" from="YSort/SpawnAreaDol" to="." method="_on_SpawnArea_node_spawned"]
