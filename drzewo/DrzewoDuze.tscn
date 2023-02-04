@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://drzewo/drzewo_duze.png" type="Texture" id=1]
-[ext_resource path="res://drzewo/Drzewo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://drzewo/DrzewoBase.tscn" type="PackedScene" id=2]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -11,12 +11,11 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 5.99981
-height = 98.0005
-
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 23.5, 30.5 )
+extents = Vector2( 19.9999, 48.25 )
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 30.0
 
 [node name="DrzewoDuze" instance=ExtResource( 2 )]
 MAX_HP = 7
@@ -25,9 +24,9 @@ MAX_HP = 7
 frames = SubResource( 1 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( -3, 51 )
-shape = SubResource( 2 )
+position = Vector2( 0, 40 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2( 4, 20 )
-shape = SubResource( 3 )
+position = Vector2( 2, 16 )
+shape = SubResource( 4 )

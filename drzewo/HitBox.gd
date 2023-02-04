@@ -1,6 +1,7 @@
 extends Area2D
 
-onready var drzewo = get_parent()
+signal hit_taken()
 
 func take_damege():
-	drzewo.get_hit()
+	print("Hitbox hit")
+	emit_signal("hit_taken")

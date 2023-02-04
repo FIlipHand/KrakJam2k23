@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://bobr/Bobr.gd" type="Script" id=1]
 [ext_resource path="res://bobr/bobr.png" type="Texture" id=2]
@@ -17,6 +17,9 @@ height = 22.0
 
 [sub_resource type="RectangleShape2D" id=3]
 
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 22.0
+
 [node name="Bobr" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -34,5 +37,11 @@ shape = SubResource( 1 )
 position = Vector2( -28, -16 )
 shape = SubResource( 3 )
 disabled = true
+
+[node name="PickUpBox" type="Area2D" parent="." groups=["Player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpBox"]
+position = Vector2( 0, -2 )
+shape = SubResource( 4 )
 
 [connection signal="area_entered" from="AttackShape" to="." method="_on_AttackShape_area_entered"]
