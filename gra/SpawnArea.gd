@@ -1,7 +1,8 @@
 extends Node2D
 
+signal spawn_node(node)
 signal no_nodes_in_area(spawn_area)
-signal node_spawned(spawn_area, node, node_count)
+signal node_spawned(spawn_area, node_count)
 signal node_exiting(spawn_area, node, node_count)
 
 export var spawn_rate:float = 3
@@ -28,17 +29,23 @@ func get_random_pos_in_area()->Vector2:
 	return Vector2(x,y)
 
 func spawn():
+	spawned_nodes_in_area += 1
 	var new_node = scene_to_spawn.instance()
-	$SpawnedNodes.add_child(new_node)
 	new_node.global_position = get_random_pos_in_area()
-	emit_signal("node_spawned", self, new_node, $SpawnedNodes.get_child_count())
+	new_node.connect("tree_entered", self, "_on_node_entering_the_tree")
+	emit_signal("spawn_node", new_node)
+
+
+func _on_node_entering_the_tree():
+	spawned_nodes_in_area += 1
+	emit_signal("node_spawned", self, spawned_nodes_in_area)
 
 
 func _on_node_exiting_the_tree(node:Node):
 	spawned_nodes_in_area -= 1
 	emit_signal("node_exiting", self, node)
 	if(spawned_nodes_in_area==0):
-		emit_signal("no_nodes_in_area", self)
+		emit_signal("no_nodes_in_area", self, spawned_nodes_in_area)
 
 
 func _on_Timer_timeout():
