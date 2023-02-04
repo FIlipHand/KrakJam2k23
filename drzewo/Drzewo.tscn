@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://drzewo/HitBox.gd" type="Script" id=1]
 [ext_resource path="res://drzewo/Drzewo.gd" type="Script" id=2]
 
 [node name="Drzewo" type="StaticBody2D"]
@@ -10,3 +11,8 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2, 33 )
 rotation = 1.5708
+
+[node name="HitBox" type="Area2D" parent="." groups=["TreeHitBox"]]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]

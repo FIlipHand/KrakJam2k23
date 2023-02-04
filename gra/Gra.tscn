@@ -19,8 +19,8 @@ position = Vector2( 899, 173 )
 [node name="DrzewoMale" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 454, 119 )
 
-[node name="DrzewoSrednie" parent="." instance=ExtResource( 4 )]
+[node name="DrzewoSrednie" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 596, 181 )
 
-[node name="DrzewoDuze" parent="." instance=ExtResource( 5 )]
+[node name="DrzewoDuze" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 765, 141 )
