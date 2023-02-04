@@ -11,3 +11,7 @@ func _physics_process(delta):
 	input_vec = input_vec.normalized() * MAX_SPEED
 
 	velocity = move_and_slide(input_vec)
+
+
+func _on_AttackShape_area_entered(area):
+	print('krowa')
