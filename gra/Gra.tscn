@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://mapa/Mapa.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bobr/Bobr.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gra/Gra.gd" type="Script" id=3]
 [ext_resource path="res://gra/SpawnArea.tscn" type="PackedScene" id=4]
 [ext_resource path="res://drzewo/DrzewoManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Tama/Tama.tscn" type="PackedScene" id=6]
 
 [node name="Gra" type="Node"]
 script = ExtResource( 3 )
@@ -14,22 +15,27 @@ position = Vector2( 640, 360 )
 
 [node name="YSort" type="YSort" parent="."]
 
+[node name="SpawnAreaGora" parent="YSort" instance=ExtResource( 4 )]
+scene_to_spawn = ExtResource( 5 )
+
+[node name="ReferenceRect" type="ReferenceRect" parent="YSort/SpawnAreaGora"]
+margin_left = 150.0
+margin_right = 250.0
+margin_bottom = 300.0
+
+[node name="SpawnAreaDol" parent="YSort" instance=ExtResource( 4 )]
+scene_to_spawn = ExtResource( 5 )
+
+[node name="ReferenceRect" type="ReferenceRect" parent="YSort/SpawnAreaDol"]
+margin_left = 150.0
+margin_top = 420.0
+margin_right = 250.0
+margin_bottom = 720.0
+
+[node name="Node2D" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 958, 399 )
+
 [node name="Bobr" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 899, 173 )
 
-[node name="SpawnAreaGora" parent="." instance=ExtResource( 4 )]
-scene_to_spawn = ExtResource( 5 )
-
-[node name="ReferenceRect" type="ReferenceRect" parent="SpawnAreaGora"]
-margin_left = 100.0
-margin_right = 200.0
-margin_bottom = 300.0
-
-[node name="SpawnAreaDol" parent="." instance=ExtResource( 4 )]
-scene_to_spawn = ExtResource( 5 )
-
-[node name="ReferenceRect" type="ReferenceRect" parent="SpawnAreaDol"]
-margin_left = 100.0
-margin_top = 420.0
-margin_right = 200.0
-margin_bottom = 720.0
+[connection signal="node_spawned" from="YSort/SpawnAreaGora" to="." method="_on_SpawnAreaGora_node_spawned"]

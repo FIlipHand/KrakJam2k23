@@ -1,5 +1,5 @@
 extends Node
 
 func _ready():
-	$SpawnAreaGora.start_spawning()
-	$SpawnAreaDol.start_spawning()
+	$YSort/SpawnAreaGora.start_spawning()
+	$YSort/SpawnAreaDol.start_spawning()
