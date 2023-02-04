@@ -6,7 +6,7 @@
 [ext_resource path="res://drzewo/atak drzewa/atak_drzewa_1.png" type="Texture" id=4]
 [ext_resource path="res://drzewo/atak drzewa/AtakDrzewa.gd" type="Script" id=5]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
@@ -24,8 +24,8 @@ script = ExtResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 1, 0 )
 z_index = 1
-frames = SubResource( 1 )
-frame = 3
+frames = SubResource( 3 )
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
