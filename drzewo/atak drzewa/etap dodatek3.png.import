@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/etap dodatek4.png-8733907632466e45558e617fcb5e6e21.stex"
+path="res://.import/etap dodatek3.png-46632a96feaf4a772b8e1a664b7ae138.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://drzewo/etap dodatek4.png"
-dest_files=[ "res://.import/etap dodatek4.png-8733907632466e45558e617fcb5e6e21.stex" ]
+source_file="res://drzewo/atak drzewa/etap dodatek3.png"
+dest_files=[ "res://.import/etap dodatek3.png-46632a96feaf4a772b8e1a664b7ae138.stex" ]
 
 [params]
 
