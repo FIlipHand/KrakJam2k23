@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lose screen — kopia.png-1f21287fa061337d49d8e0ca640a29bc.stex"
+path="res://.import/win screen.png-bf0eb7e0c99bd81db26a1a1ffe34cdf2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://win i lose screen/lose screen — kopia.png"
-dest_files=[ "res://.import/lose screen — kopia.png-1f21287fa061337d49d8e0ca640a29bc.stex" ]
+source_file="res://win i lose screen/win screen.png"
+dest_files=[ "res://.import/win screen.png-bf0eb7e0c99bd81db26a1a1ffe34cdf2.stex" ]
 
 [params]
 
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

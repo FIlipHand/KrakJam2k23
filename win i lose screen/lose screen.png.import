@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/win screen — kopia.png-5f0a14a546bb64bb7dac92f6c4f83892.stex"
+path="res://.import/lose screen.png-0464c2e70888f65a09130e60e6486508.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://win i lose screen/win screen — kopia.png"
-dest_files=[ "res://.import/win screen — kopia.png-5f0a14a546bb64bb7dac92f6c4f83892.stex" ]
+source_file="res://win i lose screen/lose screen.png"
+dest_files=[ "res://.import/lose screen.png-0464c2e70888f65a09130e60e6486508.stex" ]
 
 [params]
 
