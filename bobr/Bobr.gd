@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const MAX_SPEED = 230
+const MAX_SPEED = 460
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -72,13 +72,17 @@ func do_movement():
 		animationTree.set('parameters/Idle/blend_position', input_vec)
 		animationTree.set('parameters/Bite/blend_position', input_vec)
 		animationTree.set('parameters/LogWalk/blend_position', input_vec)
+		animationTree.set('parameters/IdleLog/blend_position', input_vec)
 		if picked_log != null:
 			animationState.travel("LogWalk")
 		else:
 			animationState.travel("Walk")
 		velocity = move_and_slide(input_vec)
 	else:
-		animationState.travel("Idle")
+		if picked_log != null:
+			animationState.travel("IdleLog")
+		else:
+			animationState.travel("Idle")
 
 func pick_or_drop():
 	if picked_log != null:

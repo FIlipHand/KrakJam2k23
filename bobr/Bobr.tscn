@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://bobr/Bobr.gd" type="Script" id=1]
 [ext_resource path="res://bobr/spritesheet.png" type="Texture" id=2]
@@ -158,8 +158,73 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
+[sub_resource type="Animation" id=51]
+resource_name = "idle_log_down"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+
+[sub_resource type="Animation" id=52]
+resource_name = "idle_log_left"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=53]
+resource_name = "idle_log_right"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
 [sub_resource type="Animation" id=50]
 resource_name = "idle_log_up"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 9 ]
+}
 
 [sub_resource type="Animation" id=12]
 resource_name = "idle_right"
@@ -377,8 +442,28 @@ blend_point_3/node = SubResource( 17 )
 blend_point_3/pos = Vector2( 0, -0.9 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id=44]
-animation = "log_right"
+[sub_resource type="AnimationNodeAnimation" id=54]
+animation = "idle_log_left"
+
+[sub_resource type="AnimationNodeAnimation" id=55]
+animation = "idle_log_down"
+
+[sub_resource type="AnimationNodeAnimation" id=56]
+animation = "idle_log_right"
+
+[sub_resource type="AnimationNodeAnimation" id=57]
+animation = "idle_log_up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=58]
+blend_point_0/node = SubResource( 54 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 55 )
+blend_point_1/pos = Vector2( 0, 0.9 )
+blend_point_2/node = SubResource( 56 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 57 )
+blend_point_3/pos = Vector2( 0, -0.9 )
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id=45]
 animation = "log_down"
@@ -389,15 +474,18 @@ animation = "log_right"
 [sub_resource type="AnimationNodeAnimation" id=47]
 animation = "log_up"
 
+[sub_resource type="AnimationNodeAnimation" id=61]
+animation = "log_left"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id=41]
-blend_point_0/node = SubResource( 44 )
-blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 45 )
-blend_point_1/pos = Vector2( 0, 1 )
-blend_point_2/node = SubResource( 46 )
-blend_point_2/pos = Vector2( 1, 0 )
-blend_point_3/node = SubResource( 47 )
-blend_point_3/pos = Vector2( 0, -1 )
+blend_point_0/node = SubResource( 45 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 46 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 47 )
+blend_point_2/pos = Vector2( 0, -1 )
+blend_point_3/node = SubResource( 61 )
+blend_point_3/pos = Vector2( -1, 0 )
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id=21]
@@ -435,16 +523,22 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=49]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=59]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=60]
+
 [sub_resource type="AnimationNodeStateMachine" id=19]
 states/Bite/node = SubResource( 34 )
 states/Bite/position = Vector2( 148, 54 )
 states/Idle/node = SubResource( 18 )
 states/Idle/position = Vector2( 257, 140 )
+states/IdleLog/node = SubResource( 58 )
+states/IdleLog/position = Vector2( 584, 48 )
 states/LogWalk/node = SubResource( 41 )
 states/LogWalk/position = Vector2( 358, 48 )
 states/Walk/node = SubResource( 25 )
 states/Walk/position = Vector2( 507, 121 )
-transitions = [ "Idle", "Walk", SubResource( 26 ), "Walk", "Idle", SubResource( 27 ), "Idle", "Bite", SubResource( 35 ), "Bite", "Idle", SubResource( 36 ), "Walk", "LogWalk", SubResource( 48 ), "LogWalk", "Walk", SubResource( 49 ) ]
+transitions = [ "Idle", "Walk", SubResource( 26 ), "Walk", "Idle", SubResource( 27 ), "Idle", "Bite", SubResource( 35 ), "Bite", "Idle", SubResource( 36 ), "Walk", "LogWalk", SubResource( 48 ), "LogWalk", "Walk", SubResource( 49 ), "LogWalk", "IdleLog", SubResource( 59 ), "IdleLog", "LogWalk", SubResource( 60 ) ]
 start_node = "Idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=20]
@@ -483,6 +577,9 @@ anims/bite_left = SubResource( 28 )
 anims/bite_right = SubResource( 29 )
 anims/idle_down = SubResource( 13 )
 anims/idle_left = SubResource( 11 )
+anims/idle_log_down = SubResource( 51 )
+anims/idle_log_left = SubResource( 52 )
+anims/idle_log_right = SubResource( 53 )
 anims/idle_log_up = SubResource( 50 )
 anims/idle_right = SubResource( 12 )
 anims/idle_up = SubResource( 6 )
@@ -501,6 +598,7 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 20 )
 parameters/Bite/blend_position = Vector2( 0, 0 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
+parameters/IdleLog/blend_position = Vector2( 0, 0 )
 parameters/LogWalk/blend_position = Vector2( -0.000873387, 0.00578034 )
 parameters/Walk/blend_position = Vector2( 0, 0 )
 
