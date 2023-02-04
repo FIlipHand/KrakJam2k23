@@ -44,10 +44,10 @@ position = Vector2( 899, 173 )
 scene_to_spawn = ExtResource( 7 )
 
 [node name="ReferenceRect" type="ReferenceRect" parent="YSort/Bobr/RootsSpawnArea"]
-margin_left = -250.0
-margin_top = -150.0
-margin_right = 250.0
-margin_bottom = 150.0
+margin_left = -175.0
+margin_top = -125.0
+margin_right = 175.0
+margin_bottom = 125.0
 
 [node name="RootsAttackTimer" type="Timer" parent="."]
 wait_time = 2.0
