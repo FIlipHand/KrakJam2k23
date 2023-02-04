@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/kloda.png-84617775b7c88b96872b04a2e6e87061.stex"
+path="res://.import/kloda.png-61317c743ab9f6a2d21cb7982fe0bf07.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tama/kloda.png"
-dest_files=[ "res://.import/kloda.png-84617775b7c88b96872b04a2e6e87061.stex" ]
+source_file="res://tama/kloda.png"
+dest_files=[ "res://.import/kloda.png-61317c743ab9f6a2d21cb7982fe0bf07.stex" ]
 
 [params]
 

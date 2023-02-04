@@ -5,7 +5,7 @@
 [ext_resource path="res://gra/Gra.gd" type="Script" id=3]
 [ext_resource path="res://gra/SpawnArea.tscn" type="PackedScene" id=4]
 [ext_resource path="res://drzewo/DrzewoManager.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Tama/Tama.tscn" type="PackedScene" id=6]
+[ext_resource path="res://tama/Tama.tscn" type="PackedScene" id=6]
 [ext_resource path="res://drzewo/atak drzewa/AtakDrzewa.tscn" type="PackedScene" id=7]
 [ext_resource path="res://mapa/rzeka_animacja_etap4.1.png" type="Texture" id=8]
 [ext_resource path="res://mapa/rzeka_animacja_etap4.2.png" type="Texture" id=9]
@@ -26,11 +26,12 @@ tree_spawner_varience = 0.0
 
 [node name="Mapa" parent="." instance=ExtResource( 1 )]
 position = Vector2( 640, 360 )
-frame = 2
+frame = 1
 
 [node name="WyschnietaRzeka" type="AnimatedSprite" parent="Mapa"]
 visible = false
 frames = SubResource( 1 )
+frame = 2
 playing = true
 
 [node name="YSort" type="YSort" parent="."]
