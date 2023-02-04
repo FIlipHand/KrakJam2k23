@@ -5,6 +5,9 @@ export var HP:int = 2
 onready var frames_count = $AnimatedSprite.frames.get_frame_count("default")
 var player = null
 
+func _ready():
+	$AnimatedSprite.play()
+
 func attack():
 	var caught:bool = false
 	for body in get_overlapping_bodies():
