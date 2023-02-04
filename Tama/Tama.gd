@@ -23,8 +23,7 @@ func add_log_to_tama():
 		$Sprite.texture = tama_2
 	if total_log_count >= 10:
 		$Sprite.texture = tama_3
-	# if total_log_count >= MAX_FILL:
-	if total_log_count >= 1:
+	if total_log_count >= MAX_FILL:
 		emit_signal("tama_built")
 	emit_signal("log_brought", total_log_count)
 
