@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://mapa/Mapa.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bobr/Bobr.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://gra/SpawnArea.tscn" type="PackedScene" id=4]
 [ext_resource path="res://drzewo/DrzewoManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Tama/Tama.tscn" type="PackedScene" id=6]
+[ext_resource path="res://drzewo/atak drzewa/AtakDrzewa.tscn" type="PackedScene" id=7]
 
 [node name="Gra" type="Node"]
 script = ExtResource( 3 )
@@ -37,6 +38,9 @@ position = Vector2( 958, 399 )
 
 [node name="Bobr" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 899, 173 )
+
+[node name="AtakDrzewa" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 673, 570 )
 
 [connection signal="no_nodes_in_area" from="YSort/SpawnAreaGora" to="." method="_on_SpawnArea_no_nodes_in_area"]
 [connection signal="node_exiting" from="YSort/SpawnAreaGora" to="." method="_on_SpawnArea_node_exiting"]
