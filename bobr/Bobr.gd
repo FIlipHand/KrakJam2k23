@@ -2,6 +2,10 @@ extends KinematicBody2D
 
 const MAX_SPEED = 230
 
+onready var animationPlayer = $AnimationPlayer
+onready var animationTree = $AnimationTree
+onready var animationState = animationTree.get("parameters/playback")
+
 var velocity = Vector2.ZERO
 var movement_enabled:bool = true
 var picked_log = null
@@ -22,20 +26,13 @@ func do_movement():
 	input_vec.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	input_vec = input_vec.normalized() * MAX_SPEED * (0.6 if picked_log != null else 1.0)
 
-	if input_vec.x > 0:
-		$AnimatedSprite.flip_h = true
-		$AttackShape.scale.x = -1
-	else:
-		$AttackShape.scale.x = 1
-		$AnimatedSprite.flip_h = false
-
-	# Animacja chodzenia
 	if input_vec != Vector2.ZERO:
-		$AnimatedSprite.play("walk")
+		animationTree.set('parameters/Walk/blend_position', input_vec)
+		animationTree.set('parameters/Idle/blend_position', input_vec)
+		animationState.travel("Walk")
+		velocity = move_and_slide(input_vec)
 	else:
-		$AnimatedSprite.stop()
-
-	velocity = move_and_slide(input_vec)
+		animationState.travel("Idle")
 
 func do_actions():
 	if Input.is_action_just_pressed("hit"):
