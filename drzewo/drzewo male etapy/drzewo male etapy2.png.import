@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/drzewo_male.png-d9256d4be0a4394fc73fea04fce3d997.stex"
+path="res://.import/drzewo male etapy2.png-a6078a6fbf8aec9f17b1704d7ee171b4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://drzewo/drzewo_male.png"
-dest_files=[ "res://.import/drzewo_male.png-d9256d4be0a4394fc73fea04fce3d997.stex" ]
+source_file="res://drzewo/drzewo male etapy/drzewo male etapy2.png"
+dest_files=[ "res://.import/drzewo male etapy2.png-a6078a6fbf8aec9f17b1704d7ee171b4.stex" ]
 
 [params]
 
