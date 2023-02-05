@@ -50,3 +50,7 @@ func _on_game_won():
 	$Mapa.stop()
 	$Mapa/WyschnietaRzeka.play()
 	$Mapa/WyschnietaRzeka.visible = true
+	get_tree().change_scene("res://ekrany/EkranZwyciestwa.tscn")
+
+func _on_lose():
+	get_tree().change_scene("res://ekrany/EkranPorazki.tscn")
