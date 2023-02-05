@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tama_0.png-e64095f16dd3b41849c69c352efa9570.stex"
+path="res://.import/tama_5.png-33352a9f15e8186140cea736d4606687.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tama/tama_0.png"
-dest_files=[ "res://.import/tama_0.png-e64095f16dd3b41849c69c352efa9570.stex" ]
+source_file="res://tama/tama_5.png"
+dest_files=[ "res://.import/tama_5.png-33352a9f15e8186140cea736d4606687.stex" ]
 
 [params]
 
