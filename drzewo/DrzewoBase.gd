@@ -2,6 +2,8 @@
 extends StaticBody2D
 
 signal ready_to_grow()
+signal drzewo_killed()
+signal spawn_log(logNode)
 
 export var MAX_HP: int = 3
 
@@ -18,13 +20,14 @@ func _on_GrowthTimer_timeout():
 func drop_log():
 	var log_instance: StaticBody2D = tree_log.instance()
 	var vec_rand = Vector2(rng.randf_range(-50, 50), rng.randf_range(-50, 50))
-	log_instance.position += vec_rand
-	get_parent().call_deferred("add_child", log_instance)
+	log_instance.position = vec_rand
+	emit_signal("spawn_log", log_instance)
 
 
 func on_hit():
 	drop_log()
 	current_hp -= 1
-	if current_hp == 0:
-		queue_free()
+	if current_hp <= 0:
+		hide()
+		emit_signal("drzewo_killed")
 
