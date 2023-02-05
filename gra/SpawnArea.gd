@@ -34,7 +34,6 @@ func spawn():
 	new_node.connect("tree_entered", self, "_on_node_entering_the_tree")
 	new_node.connect("tree_exiting", self, "_on_node_exiting_the_tree")
 	if new_node.has_signal("spawn_log"):
-		print("in group log")
 		new_node.connect("spawn_log", self, "_on_spawn_log")
 	emit_signal("spawn_node", new_node)
 
