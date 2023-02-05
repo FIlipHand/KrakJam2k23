@@ -13,6 +13,7 @@ animations = [ {
 } ]
 
 [node name="Ekran" type="AnimatedSprite"]
+playing = true
 offset = Vector2( 640, 360 )
 script = ExtResource( 1 )
 
