@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ekran_porazki.png-f39bb6860cac025be9af60c0ace0dc15.stex"
+path="res://.import/ekran_menu2.png-bf03c69f4414cb7fbfe90666f666286f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ekrany/ekran_porazki.png"
-dest_files=[ "res://.import/ekran_porazki.png-f39bb6860cac025be9af60c0ace0dc15.stex" ]
+source_file="res://ekrany/ekran_menu2.png"
+dest_files=[ "res://.import/ekran_menu2.png-bf03c69f4414cb7fbfe90666f666286f.stex" ]
 
 [params]
 

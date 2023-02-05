@@ -12,6 +12,6 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Ekran" instance=ExtResource( 1 )]
+[node name="Cutscene_3" instance=ExtResource( 1 )]
 frames = SubResource( 1 )
 next_scene = ExtResource( 3 )

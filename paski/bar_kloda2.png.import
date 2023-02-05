@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ekran_porazki.png-f39bb6860cac025be9af60c0ace0dc15.stex"
+path="res://.import/bar_kloda2.png-f991e2dc40e25634642ba8432e05570f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ekrany/ekran_porazki.png"
-dest_files=[ "res://.import/ekran_porazki.png-f39bb6860cac025be9af60c0ace0dc15.stex" ]
+source_file="res://paski/bar_kloda2.png"
+dest_files=[ "res://.import/bar_kloda2.png-f991e2dc40e25634642ba8432e05570f.stex" ]
 
 [params]
 
