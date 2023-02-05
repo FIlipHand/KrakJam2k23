@@ -12,7 +12,10 @@ var initial_stage = preload('res://tama/tama_0.png');
 var tama_stages = [
 	preload('res://tama/tama_1.png'),
 	preload('res://tama/tama_2.png'),
-	preload('res://tama/tama_3.png')
+	preload('res://tama/tama_3.png'),
+	preload('res://tama/tama_4.png'),
+	preload('res://tama/tama_5.png'),
+	preload('res://tama/tama_6.png'),
 ]
 
 func _ready():
