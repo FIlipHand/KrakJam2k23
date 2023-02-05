@@ -30,7 +30,6 @@ func _on_SpawnArea_spawn_node(node):
 
 func _on_SpawnArea_node_spawned(spawn_area, node_count):
 	total_tree_count += 1
-
 	if(node_count > 0 && node_count % trees_per_progression == 0):
 		# move spawn area forward
 		shift_spawn_area(spawn_area, 1)

@@ -23,6 +23,7 @@ animations = [ {
 script = ExtResource( 3 )
 tree_spawner_rate = 2.0
 tree_spawner_varience = 0.0
+trees_per_progression = 10
 
 [node name="Mapa" parent="." instance=ExtResource( 1 )]
 
@@ -38,7 +39,7 @@ scene_to_spawn = ExtResource( 5 )
 
 [node name="ReferenceRect" type="ReferenceRect" parent="YSort/SpawnAreaGora"]
 margin_left = 200.0
-margin_right = 300.0
+margin_right = 700.0
 margin_bottom = 300.0
 
 [node name="SpawnAreaDol" parent="YSort" instance=ExtResource( 4 )]
@@ -47,7 +48,7 @@ scene_to_spawn = ExtResource( 5 )
 [node name="ReferenceRect" type="ReferenceRect" parent="YSort/SpawnAreaDol"]
 margin_left = 200.0
 margin_top = 420.0
-margin_right = 300.0
+margin_right = 700.0
 margin_bottom = 720.0
 
 [node name="Tama" parent="YSort" instance=ExtResource( 6 )]

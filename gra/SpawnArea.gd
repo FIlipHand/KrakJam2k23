@@ -29,7 +29,6 @@ func get_random_pos_in_area()->Vector2:
 	return Vector2(x,y)
 
 func spawn():
-	spawned_nodes_in_area += 1
 	var new_node = scene_to_spawn.instance()
 	new_node.global_position = get_random_pos_in_area()
 	new_node.connect("tree_entered", self, "_on_node_entering_the_tree")
