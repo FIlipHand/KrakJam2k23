@@ -38,5 +38,5 @@ func _on_drzewo_killed():
 	queue_free()
 
 func _on_spawn_log(logNode):
-	logNode.global_position += global_position
+	logNode.position += global_position
 	emit_signal("spawn_log", logNode)
