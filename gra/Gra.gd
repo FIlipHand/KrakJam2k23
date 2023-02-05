@@ -3,6 +3,7 @@ extends Node
 export var tree_spawner_rate:float = 1
 export var tree_spawner_varience:float = 10
 export var trees_per_progression:int = 2
+export var max_tree_count:int = 35
 
 var total_tree_count:int = 0
 var min_spawn_area_x:float = 0
@@ -33,17 +34,22 @@ func _on_SpawnArea_node_spawned(spawn_area, node_count):
 	if(node_count > 0 && node_count % trees_per_progression == 0):
 		# move spawn area forward
 		shift_spawn_area(spawn_area, 1)
+	if total_tree_count >= max_tree_count:
+		_on_game_lose()
 
 
 func _on_SpawnArea_node_exiting(_spawn_area, _node_count):
 	total_tree_count -= 1
 
+
 func _on_SpawnArea_no_nodes_in_area(spawn_area):
 	# move spawn area forward
 	shift_spawn_area(spawn_area, -1)
 
+
 func _on_RootsAttackTimer_timeout():
 	attack_with_roots()
+
 
 func _on_game_won():
 	$Mapa.stop()
@@ -51,5 +57,5 @@ func _on_game_won():
 	$Mapa/WyschnietaRzeka.visible = true
 	get_tree().change_scene("res://ekrany/EkranZwyciestwa.tscn")
 
-func _on_lose():
+func _on_game_lose():
 	get_tree().change_scene("res://ekrany/EkranPorazki.tscn")
