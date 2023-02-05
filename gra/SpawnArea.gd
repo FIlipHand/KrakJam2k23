@@ -3,7 +3,7 @@ extends Node2D
 signal spawn_node(node)
 signal no_nodes_in_area(spawn_area)
 signal node_spawned(spawn_area, node_count)
-signal node_exiting(spawn_area, node, node_count)
+signal spawned_node_exiting(spawn_area, node_count)
 
 export var spawn_rate:float = 3
 export var spawn_rate_varience:float = 0.5
@@ -32,6 +32,10 @@ func spawn():
 	var new_node = scene_to_spawn.instance()
 	new_node.global_position = get_random_pos_in_area()
 	new_node.connect("tree_entered", self, "_on_node_entering_the_tree")
+	new_node.connect("tree_exiting", self, "_on_node_exiting_the_tree")
+	if new_node.has_signal("spawn_log"):
+		print("in group log")
+		new_node.connect("spawn_log", self, "_on_spawn_log")
 	emit_signal("spawn_node", new_node)
 
 
@@ -40,12 +44,15 @@ func _on_node_entering_the_tree():
 	emit_signal("node_spawned", self, spawned_nodes_in_area)
 
 
-func _on_node_exiting_the_tree(node:Node):
+func _on_node_exiting_the_tree():
 	spawned_nodes_in_area -= 1
-	emit_signal("node_exiting", self, node)
+	emit_signal("spawned_node_exiting", self, spawned_nodes_in_area)
 	if(spawned_nodes_in_area==0):
-		emit_signal("no_nodes_in_area", self, spawned_nodes_in_area)
+		emit_signal("no_nodes_in_area", self)
 
 
 func _on_Timer_timeout():
 	spawn()
+
+func _on_spawn_log(logNode):
+	emit_signal("spawn_node", logNode)

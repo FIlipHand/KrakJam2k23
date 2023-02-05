@@ -6,10 +6,10 @@ export var start_growth_stage:int = 0 # used only to start growth_stage at start
 onready var growth_stage:int = start_growth_stage -1
 
 signal drzewo_uroslo(new_stage)
+signal spawn_log(logNode)
 
 func _ready():
 	grow_tree()
-
 
 # makes the tree grow to the next stage
 func grow_tree():
@@ -30,4 +30,13 @@ func grow_tree():
 
 	add_child(new_tree)
 	new_tree.connect("ready_to_grow", self, "grow_tree")
+	new_tree.connect("drzewo_killed", self, "_on_drzewo_killed")
+	new_tree.connect("spawn_log", self, "_on_spawn_log")
 	emit_signal("drzewo_uroslo", growth_stage)
+
+func _on_drzewo_killed():
+	queue_free()
+
+func _on_spawn_log(logNode):
+	logNode.global_position += global_position
+	emit_signal("spawn_log", logNode)
