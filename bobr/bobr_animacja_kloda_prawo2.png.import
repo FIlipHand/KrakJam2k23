@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tama_2.png-aa1a3c1817e6f3d1128734083adde60a.stex"
+path="res://.import/bobr_animacja_kloda_prawo2.png-c5f0c93e4751e14d4c5761ca18da463f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tama/tama_2.png"
-dest_files=[ "res://.import/tama_2.png-aa1a3c1817e6f3d1128734083adde60a.stex" ]
+source_file="res://bobr/bobr_animacja_kloda_prawo2.png"
+dest_files=[ "res://.import/bobr_animacja_kloda_prawo2.png-c5f0c93e4751e14d4c5761ca18da463f.stex" ]
 
 [params]
 
