@@ -11,11 +11,12 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 19.9999, 48.25 )
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 20.0
+height = 30.0
 
-[sub_resource type="CapsuleShape2D" id=4]
-radius = 30.0
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 42, 46.5 )
 
 [node name="DrzewoDuze" instance=ExtResource( 2 )]
 MAX_HP = 7
@@ -24,9 +25,10 @@ MAX_HP = 7
 frames = SubResource( 1 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 0, 40 )
-shape = SubResource( 3 )
+position = Vector2( -1, 33 )
+rotation = 0.0
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2( 2, 16 )
-shape = SubResource( 4 )
+position = Vector2( 4, 22 )
+shape = SubResource( 3 )
