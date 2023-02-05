@@ -16,6 +16,10 @@ func _ready():
 		spawnArea.start_spawning()
 		min_spawn_area_x = spawnArea.get_node("ReferenceRect").rect_global_position.x
 
+func _process(_delta):
+	$Control/BobrWinBar.value = $YSort/Tama.total_log_count * 100 / $YSort/Tama.MAX_FILL
+	$Control2/TreeWinBar.value = 100 * total_tree_count / float(max_tree_count)
+
 func attack_with_roots():
 	roots_spawn_area.spawn()
 
