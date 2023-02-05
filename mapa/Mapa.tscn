@@ -13,6 +13,7 @@ animations = [ {
 } ]
 
 [node name="Mapa" type="AnimatedSprite"]
+z_index = -5
 frames = SubResource( 1 )
 frame = 1
 playing = true

@@ -50,6 +50,7 @@ func _process(_delta):
 		
 
 func do_movement():
+	$AttackShape/CollisionShape2D.disabled = true
 	var input_vec = Vector2.ZERO
 	input_vec.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	input_vec.y = Input.get_action_strength("down") - Input.get_action_strength("up")

@@ -26,12 +26,12 @@ tree_spawner_varience = 0.0
 
 [node name="Mapa" parent="." instance=ExtResource( 1 )]
 position = Vector2( 640, 360 )
-frame = 0
 offset = Vector2( 0, 0 )
 
 [node name="WyschnietaRzeka" type="AnimatedSprite" parent="Mapa"]
 visible = false
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="YSort" type="YSort" parent="."]
