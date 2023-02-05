@@ -30,7 +30,6 @@ func add_log_to_tama():
 	var logs_per_stage = float(MAX_FILL) / float(len(tama_stages))
 	
 	if(total_log_count >= logs_per_stage * current_stage && total_log_count<MAX_FILL):
-		print("totalcount:", total_log_count, "logs_per_stage", logs_per_stage)
 		current_stage += 1
 		$Sprite.texture = tama_stages[current_stage - 1]
 
