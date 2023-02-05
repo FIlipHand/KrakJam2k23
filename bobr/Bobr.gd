@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const MAX_SPEED = 460
+const MAX_SPEED = 400
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -28,10 +28,16 @@ func _ready():
 	animationTree.active = true
 	$AttackShape/CollisionShape2D.disabled = true
 
-func _physics_process(_delta):
+func _process(_delta):
+	if bubr_state == BITE:
+		return
+	# 	$AttackShape/CollisionShape2D.disabled = true
 	if Input.is_action_just_pressed("hit"):
 		if picked_log == null:
-			bubr_state = 1
+			if bubr_state == BITE:
+				bubr_state = MOVE
+			else:
+				bubr_state = BITE
 	
 	if Input.is_action_just_pressed("pick_drop"):
 		pick_or_drop()
@@ -40,15 +46,14 @@ func _physics_process(_delta):
 		MOVE:
 			do_movement()
 		BITE:
-			bite_state()
+			animationState.travel("Bite")
 		
-
 
 func do_movement():
 	var input_vec = Vector2.ZERO
 	input_vec.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	input_vec.y = Input.get_action_strength("down") - Input.get_action_strength("up")
-	input_vec = input_vec.normalized() * MAX_SPEED * (0.6 if picked_log != null else 1.0) * (1.0 if movement_enabled else 0.0001)
+	input_vec = input_vec.normalized() * MAX_SPEED * (0.7 if picked_log != null else 1.0) * (1.0 if movement_enabled else 0.0001)
 	
 	var x_qt_y = abs(input_vec.x) > abs(input_vec.y)
 	if x_qt_y:
@@ -105,8 +110,6 @@ func drop_log_to_tama():
 		picked_log.queue_free()
 		picked_log = null
 
-func bite_state():
-	animationState.travel("Bite")
 
 func _on_AttackShape_area_entered(area: Area2D):
 	if area.is_in_group('attackable'):
@@ -114,3 +117,4 @@ func _on_AttackShape_area_entered(area: Area2D):
 
 func bite_animation_finish():
 	bubr_state = MOVE
+	do_movement()

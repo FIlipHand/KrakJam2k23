@@ -529,15 +529,15 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachine" id=19]
 states/Bite/node = SubResource( 34 )
-states/Bite/position = Vector2( 148, 54 )
+states/Bite/position = Vector2( 142, 48 )
 states/Idle/node = SubResource( 18 )
 states/Idle/position = Vector2( 257, 140 )
 states/IdleLog/node = SubResource( 58 )
-states/IdleLog/position = Vector2( 584, 48 )
+states/IdleLog/position = Vector2( 751, 48 )
 states/LogWalk/node = SubResource( 41 )
-states/LogWalk/position = Vector2( 358, 48 )
+states/LogWalk/position = Vector2( 527, 48 )
 states/Walk/node = SubResource( 25 )
-states/Walk/position = Vector2( 507, 121 )
+states/Walk/position = Vector2( 504, 140 )
 transitions = [ "Idle", "Walk", SubResource( 26 ), "Walk", "Idle", SubResource( 27 ), "Idle", "Bite", SubResource( 35 ), "Bite", "Idle", SubResource( 36 ), "Walk", "LogWalk", SubResource( 48 ), "LogWalk", "Walk", SubResource( 49 ), "LogWalk", "IdleLog", SubResource( 59 ), "IdleLog", "LogWalk", SubResource( 60 ) ]
 start_node = "Idle"
 
@@ -559,7 +559,7 @@ shape = SubResource( 1 )
 [node name="AttackShape" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackShape"]
-position = Vector2( -34, 1.5 )
+position = Vector2( -36, 2 )
 shape = SubResource( 3 )
 
 [node name="PickUpBox" type="Area2D" parent="." groups=["Player"]]

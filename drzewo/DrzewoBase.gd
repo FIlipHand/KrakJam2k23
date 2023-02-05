@@ -7,7 +7,7 @@ export var MAX_HP: int = 3
 
 onready var current_hp = MAX_HP
 
-onready var tree_log = preload("res://Tama/Log.tscn")
+onready var tree_log = preload("res://tama/Log.tscn")
 
 var rng = RandomNumberGenerator.new()
 
