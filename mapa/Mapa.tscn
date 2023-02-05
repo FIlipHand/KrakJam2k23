@@ -13,6 +13,7 @@ animations = [ {
 } ]
 
 [node name="Mapa" type="AnimatedSprite"]
-position = Vector2( 642, 363 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
+offset = Vector2( 640, 360 )
