@@ -18,5 +18,8 @@ frames = SubResource( 1 )
 skip_fade_in = true
 next_scene = ExtResource( 3 )
 
+[node name="Enter" parent="." index="0"]
+frame = 1
+
 [node name="AudioStreamPlayer2D" parent="." index="2"]
 stream = ExtResource( 4 )
