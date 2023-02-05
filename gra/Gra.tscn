@@ -89,12 +89,12 @@ autostart = true
 
 [node name="Control" parent="." instance=ExtResource( 11 )]
 margin_left = 640.0
-margin_right = 638.6
-margin_bottom = -0.0400009
+margin_right = 281.6
+margin_bottom = -23.04
 
 [node name="Control2" parent="." instance=ExtResource( 12 )]
-margin_left = 279.0
-margin_right = 279.0
+margin_left = 374.0
+margin_right = 374.0
 margin_bottom = 0.0
 
 [node name="Border" type="StaticBody2D" parent="."]
