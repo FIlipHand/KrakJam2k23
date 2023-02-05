@@ -1,19 +1,39 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://mapa/Mapa.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bobr/Bobr.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gra/Gra.gd" type="Script" id=3]
 [ext_resource path="res://gra/SpawnArea.tscn" type="PackedScene" id=4]
 [ext_resource path="res://drzewo/DrzewoManager.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Tama/Tama.tscn" type="PackedScene" id=6]
+[ext_resource path="res://tama/Tama.tscn" type="PackedScene" id=6]
 [ext_resource path="res://drzewo/atak drzewa/AtakDrzewa.tscn" type="PackedScene" id=7]
+[ext_resource path="res://mapa/rzeka_animacja_etap4.1.png" type="Texture" id=8]
+[ext_resource path="res://mapa/rzeka_animacja_etap4.2.png" type="Texture" id=9]
+[ext_resource path="res://mapa/rzeka_animacja_etap4.3.png" type="Texture" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Gra" type="Node"]
 script = ExtResource( 3 )
+tree_spawner_rate = 2.0
+tree_spawner_varience = 0.0
 
 [node name="Mapa" parent="." instance=ExtResource( 1 )]
 position = Vector2( 640, 360 )
-frame = 0
+frame = 2
+offset = Vector2( 0, 0 )
+
+[node name="WyschnietaRzeka" type="AnimatedSprite" parent="Mapa"]
+visible = false
+frames = SubResource( 1 )
+frame = 2
+playing = true
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -36,6 +56,7 @@ margin_bottom = 720.0
 
 [node name="Tama" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 958, 399 )
+MAX_FILL = 1
 
 [node name="Bobr" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 899, 173 )
@@ -61,5 +82,6 @@ autostart = true
 [connection signal="node_exiting" from="YSort/SpawnAreaDol" to="." method="_on_SpawnArea_node_exiting"]
 [connection signal="node_spawned" from="YSort/SpawnAreaDol" to="." method="_on_SpawnArea_node_spawned"]
 [connection signal="spawn_node" from="YSort/SpawnAreaDol" to="." method="_on_SpawnArea_spawn_node"]
+[connection signal="tama_built" from="YSort/Tama" to="." method="_on_game_won"]
 [connection signal="spawn_node" from="YSort/Bobr/RootsSpawnArea" to="." method="_on_SpawnArea_spawn_node"]
 [connection signal="timeout" from="RootsAttackTimer" to="." method="_on_RootsAttackTimer_timeout"]
