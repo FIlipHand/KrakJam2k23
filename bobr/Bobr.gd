@@ -28,9 +28,10 @@ func _ready():
 	animationTree.active = true
 	$AttackShape/CollisionShape2D.disabled = true
 
-func _physics_process(_delta):
-	if bubr_state != BITE:
-		$AttackShape/CollisionShape2D.disabled = true
+func _process(_delta):
+	if bubr_state == BITE:
+		return
+	# 	$AttackShape/CollisionShape2D.disabled = true
 	if Input.is_action_just_pressed("hit"):
 		if picked_log == null:
 			if bubr_state == BITE:
@@ -116,3 +117,4 @@ func _on_AttackShape_area_entered(area: Area2D):
 
 func bite_animation_finish():
 	bubr_state = MOVE
+	do_movement()
