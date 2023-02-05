@@ -13,6 +13,7 @@ func _ready():
 	for spawnArea in [$YSort/SpawnAreaGora, $YSort/SpawnAreaDol]:
 		spawnArea.spawn_rate = tree_spawner_rate
 		spawnArea.spawn_rate_varience = tree_spawner_varience
+		spawnArea.spawn()
 		spawnArea.start_spawning()
 		min_spawn_area_x = spawnArea.get_node("ReferenceRect").rect_global_position.x
 
@@ -26,7 +27,12 @@ func attack_with_roots():
 func shift_spawn_area(spawn_area, xMulitplier):
 	var refRect = spawn_area.get_node("ReferenceRect")
 	var xOffset:float = refRect.rect_size.x * xMulitplier
-	refRect.rect_global_position += Vector2(xOffset, 0)
+	var newPos = refRect.rect_global_position + Vector2(xOffset, 0)
+	# wont shift beyond screen
+	if (newPos.x > 0):
+		refRect.rect_global_position = newPos
+
+	
 
 
 func _on_SpawnArea_spawn_node(node):
@@ -48,7 +54,8 @@ func _on_SpawnArea_drzewo_exiting(_spawn_area, _node_count):
 
 func _on_SpawnArea_no_drzewo_in_area(spawn_area):
 	# move spawn area forward
-	shift_spawn_area(spawn_area, -1)
+	# shift_spawn_area(spawn_area, -1)
+	pass
 
 
 func _on_RootsAttackTimer_timeout():
