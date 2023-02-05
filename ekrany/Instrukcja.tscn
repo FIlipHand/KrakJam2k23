@@ -15,4 +15,8 @@ animations = [ {
 
 [node name="Instrukcja" instance=ExtResource( 1 )]
 frames = SubResource( 1 )
+frame = 1
 next_scene = ExtResource( 2 )
+
+[node name="Enter" parent="." index="0"]
+frame = 1

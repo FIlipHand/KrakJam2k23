@@ -14,4 +14,5 @@ animations = [ {
 
 [node name="Cutscene_1" instance=ExtResource( 1 )]
 frames = SubResource( 1 )
+skip_fade_in = true
 next_scene = ExtResource( 3 )
