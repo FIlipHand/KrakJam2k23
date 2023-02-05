@@ -13,6 +13,7 @@ func _ready():
 	for spawnArea in [$YSort/SpawnAreaGora, $YSort/SpawnAreaDol]:
 		spawnArea.spawn_rate = tree_spawner_rate
 		spawnArea.spawn_rate_varience = tree_spawner_varience
+		spawnArea.spawn()
 		spawnArea.start_spawning()
 		min_spawn_area_x = spawnArea.get_node("ReferenceRect").rect_global_position.x
 
