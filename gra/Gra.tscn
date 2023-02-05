@@ -38,9 +38,10 @@ b = Vector2( 1280, 720 )
 
 [node name="Gra" type="Node"]
 script = ExtResource( 3 )
-tree_spawner_rate = 2.0
-tree_spawner_varience = 0.0
-trees_per_progression = 10
+tree_spawner_rate = 3.0
+tree_spawner_varience = 1.0
+trees_per_progression = 5
+max_tree_count = 100
 
 [node name="Mapa" parent="." instance=ExtResource( 1 )]
 
@@ -75,6 +76,8 @@ position = Vector2( 958, 399 )
 position = Vector2( 899, 173 )
 
 [node name="RootsSpawnArea" parent="YSort/Bobr" instance=ExtResource( 4 )]
+spawn_rate = 20.0
+spawn_rate_varience = 0.8
 scene_to_spawn = ExtResource( 7 )
 
 [node name="ReferenceRect" type="ReferenceRect" parent="YSort/Bobr/RootsSpawnArea"]
