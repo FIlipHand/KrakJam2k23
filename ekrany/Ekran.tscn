@@ -14,7 +14,6 @@ animations = [ {
 } ]
 
 [node name="Ekran" type="AnimatedSprite"]
-playing = true
 offset = Vector2( 640, 360 )
 script = ExtResource( 1 )
 
@@ -22,6 +21,7 @@ script = ExtResource( 1 )
 position = Vector2( 1171, 621 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="FadeTransition" parent="." instance=ExtResource( 4 )]
