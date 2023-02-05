@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tama_6.png-a4b6c6f805cb07997901dbf5319469b4.stex"
+path="res://.import/FAZA-trzecia-galezie.png-11e2d1a6632b0aeb70de958df814ae08.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tama/tama_6.png"
-dest_files=[ "res://.import/tama_6.png-a4b6c6f805cb07997901dbf5319469b4.stex" ]
+source_file="res://tama/FAZA-trzecia-galezie.png"
+dest_files=[ "res://.import/FAZA-trzecia-galezie.png-11e2d1a6632b0aeb70de958df814ae08.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0
