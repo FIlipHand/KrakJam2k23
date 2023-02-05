@@ -47,6 +47,7 @@ func _process(_delta):
 			do_movement()
 		BITE:
 			animationState.travel("Bite")
+			$AudioStreamPlayer2D.play()
 		
 
 func do_movement():
@@ -56,22 +57,23 @@ func do_movement():
 	input_vec.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	input_vec = input_vec.normalized() * MAX_SPEED * (0.7 if picked_log != null else 1.0) * (1.0 if movement_enabled else 0.0001)
 	
-	var x_qt_y = abs(input_vec.x) > abs(input_vec.y)
-	if x_qt_y:
-		facing = direction.E if input_vec.x > 0 else direction.W
-	else:
-		facing = direction.S if input_vec.y > 0 else direction.N
-	
-	match facing:
-		1:
-			$AttackShape.scale.x = 1
-		2:
-			$AttackShape.scale.x = -1
-		0:
-			pass # TODO? ? ?
-		3:
-			pass
 	if input_vec != Vector2.ZERO:
+		var x_qt_y = abs(input_vec.x) > abs(input_vec.y)
+		if x_qt_y:
+			facing = direction.E if input_vec.x > 0 else direction.W
+		else:
+			facing = direction.S if input_vec.y > 0 else direction.N
+		
+		match facing:
+			1:
+				$AttackShape.rotation_degrees = 0
+			2:
+				$AttackShape.rotation_degrees = 180
+			0:
+				$AttackShape.rotation_degrees = 90
+			3:
+				$AttackShape.rotation_degrees = -90
+
 		animationTree.set('parameters/Walk/blend_position', input_vec)
 		animationTree.set('parameters/Idle/blend_position', input_vec)
 		animationTree.set('parameters/Bite/blend_position', input_vec)
