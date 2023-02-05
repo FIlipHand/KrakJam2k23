@@ -6,10 +6,10 @@ signal tama_built()
 export var MAX_FILL: int = 100
 export var total_log_count: int = 0
 
-var tama_0 = preload('res://Tama/tama_0.png')
-var tama_1 = preload('res://Tama/tama_1.png')
-var tama_2 = preload('res://Tama/tama_2.png')
-var tama_3 = preload('res://Tama/tama_3.png')
+var tama_0 = preload('res://tama/tama_0.png')
+var tama_1 = preload('res://tama/tama_1.png')
+var tama_2 = preload('res://tama/tama_2.png')
+var tama_3 = preload('res://tama/tama_3.png')
 
 func _ready():
 	$Sprite.texture = tama_0
