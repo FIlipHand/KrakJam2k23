@@ -7,6 +7,7 @@ radius = 53.0
 height = 38.0
 
 [node name="Tama" type="Area2D"]
+z_index = -2
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
