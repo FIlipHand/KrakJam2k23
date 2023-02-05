@@ -1,18 +1,23 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://drzewo/DrzewoBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://drzewo/drzewo male etapy/drzewo male etapy1.png" type="Texture" id=2]
+[ext_resource path="res://drzewo/drzewo male etapy/drzewo male etapy2.png" type="Texture" id=3]
 [ext_resource path="res://drzewo/drzewo male etapy/drzewo male etapy3.png" type="Texture" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "default",
 "speed": 1.0
 } ]
 
+[sub_resource type="CapsuleShape2D" id=4]
+height = 4.0
+
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 19.9999, 48.25 )
+extents = Vector2( 19.9999, 29.625 )
 
 [node name="DrzewoMale" instance=ExtResource( 1 )]
 
@@ -21,10 +26,11 @@ frames = SubResource( 1 )
 playing = true
 
 [node name="CollisionShape2D" parent="." index="1"]
-shape = SubResource( 3 )
+position = Vector2( -4, 25 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2( -4, 13 )
+position = Vector2( -2, 11 )
 shape = SubResource( 3 )
 
 [node name="GrowthTimer" parent="." index="3"]
