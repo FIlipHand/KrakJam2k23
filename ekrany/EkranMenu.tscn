@@ -16,6 +16,3 @@ animations = [ {
 [node name="EkranMenu" instance=ExtResource( 1 )]
 frames = SubResource( 1 )
 next_scene = ExtResource( 3 )
-
-[node name="Enter" parent="." index="0"]
-frame = 1
