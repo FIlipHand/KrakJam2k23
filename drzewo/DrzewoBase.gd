@@ -7,6 +7,8 @@ signal spawn_log(logNode)
 
 export var MAX_HP: int = 3
 
+export var hit_particle: PackedScene
+
 onready var current_hp = MAX_HP
 
 onready var tree_log = preload("res://tama/Log.tscn")
@@ -25,6 +27,11 @@ func drop_log():
 
 
 func on_hit():
+	var particle = hit_particle.instance()
+	particle.position = global_position
+	particle.emitting = true
+	get_tree().current_scene.add_child(particle)
+
 	drop_log()
 	current_hp -= 1
 	if current_hp <= 0:
