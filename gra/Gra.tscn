@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://mapa/Mapa.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bobr/Bobr.tscn" type="PackedScene" id=2]
@@ -20,6 +20,21 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="SegmentShape2D" id=3]
+b = Vector2( 1280, 0 )
+
+[sub_resource type="SegmentShape2D" id=4]
+a = Vector2( 0, 720 )
+b = Vector2( 1280, 720 )
+
+[sub_resource type="SegmentShape2D" id=5]
+a = Vector2( 130, 0 )
+b = Vector2( 130, 720 )
+
+[sub_resource type="SegmentShape2D" id=6]
+a = Vector2( 1280, 0 )
+b = Vector2( 1280, 720 )
 
 [node name="Gra" type="Node"]
 script = ExtResource( 3 )
@@ -81,6 +96,20 @@ margin_bottom = -0.0400009
 margin_left = 279.0
 margin_right = 279.0
 margin_bottom = 0.0
+
+[node name="Border" type="StaticBody2D" parent="."]
+
+[node name="Upper" type="CollisionShape2D" parent="Border"]
+shape = SubResource( 3 )
+
+[node name="Lower" type="CollisionShape2D" parent="Border"]
+shape = SubResource( 4 )
+
+[node name="Left" type="CollisionShape2D" parent="Border"]
+shape = SubResource( 5 )
+
+[node name="Right" type="CollisionShape2D" parent="Border"]
+shape = SubResource( 6 )
 
 [connection signal="no_nodes_in_area" from="YSort/SpawnAreaGora" to="." method="_on_SpawnArea_no_nodes_in_area"]
 [connection signal="node_exiting" from="YSort/SpawnAreaGora" to="." method="_on_SpawnArea_node_exiting"]
