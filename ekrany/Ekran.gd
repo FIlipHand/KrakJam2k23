@@ -7,6 +7,7 @@ export (PackedScene)var next_scene
 var fade_out_started:bool = false
 
 func _ready():
+	$AudioStreamPlayer2D.play()
 	$FadeTransition.connect("fade_in_finished", self, "_on_fade_in_finished")
 	$FadeTransition.connect("fade_out_finished", self, "_on_fade_out_finished")
 	

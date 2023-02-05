@@ -16,6 +16,3 @@ animations = [ {
 frames = SubResource( 1 )
 skip_fade_out = true
 next_scene = ExtResource( 3 )
-
-[node name="Enter" parent="." index="0"]
-frame = 0

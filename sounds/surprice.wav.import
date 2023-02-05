@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/surprice.wav-78fc29ab2ba32155f8e75520b00c8ad9.sample"
+
+[deps]
+
+source_file="res://sounds/surprice.wav"
+dest_files=[ "res://.import/surprice.wav-78fc29ab2ba32155f8e75520b00c8ad9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
